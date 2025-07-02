@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php"
          colors="true"
-         verbose="true">
-    
+         executionOrder="random"
+         cacheDirectory=".phpunit.cache"
+         failOnWarning="true">
+
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>./test</directory>
+            <directory>test</directory>
         </testsuite>
     </testsuites>
 
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory>src</directory>
-        </include>
-    </coverage>
+   <coverage>
+    <include>
+        <directory suffix=".php">src</directory>
+    </include>
+</coverage>
 
-    <filter>
-        <whitelist processUncoveredFiles="true">
-            <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter>
+
 </phpunit>
