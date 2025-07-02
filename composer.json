@@ -22,6 +22,5 @@
     "analyse": "phpstan analyse",
     "test": "phpunit"
 }
-
 }
 

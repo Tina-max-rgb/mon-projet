@@ -58,4 +58,4 @@ jobs:
           sleep 2
           echo "Lancement des migrations de base de données..."
           sleep 3
-          echo "Déploiement terminé avec succès !"
+          echo "Déploiement terminé avec succès!"
