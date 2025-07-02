@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use App\Greeter; // Assurez-vous que ce namespace est correct
+use Bouno\MonProjet\Greeter; 
 
 class GreeterTest extends TestCase
 {

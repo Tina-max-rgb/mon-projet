@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Bouno\MonProjet;
 
 class Greeter
 {
