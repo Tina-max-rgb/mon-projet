@@ -18,7 +18,10 @@ jobs:
         with:
           php-version: '8.2'
           tools: composer:v2
-          coverage: xdebug  # Active Xdebug pour la couverture
+          coverage: xdebug
+
+      - name: Enable Xdebug (for coverage)
+        run: echo "XDEBUG_MODE=coverage" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
@@ -30,13 +33,10 @@ jobs:
         run: composer analyse
 
       - name: Run Tests (PHPUnit)
-        run: composer test
+        run: php vendor/bin/phpunit
 
       - name: Generate and Upload Coverage Report
-        env:
-          XDEBUG_MODE: coverage
-        run: |
-          vendor/bin/phpunit --coverage-html build/coverage
+        run: php vendor/bin/phpunit --coverage-html build/coverage
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4

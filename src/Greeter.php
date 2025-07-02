@@ -6,6 +6,6 @@ class Greeter
 {
     public function greet(): string
     {
-        return 'Hello from src!';
+        return 'Hello, World!';
     }
 }
