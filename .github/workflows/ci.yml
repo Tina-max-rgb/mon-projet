@@ -16,8 +16,9 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.2'
           tools: composer:v2
+          coverage: xdebug  # Active Xdebug pour la couverture
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
@@ -27,3 +28,18 @@ jobs:
 
       - name: Run Static Analysis
         run: composer analyse
+
+      - name: Run Tests (PHPUnit)
+        run: composer test
+
+      - name: Generate and Upload Coverage Report
+        env:
+          XDEBUG_MODE: coverage
+        run: |
+          vendor/bin/phpunit --coverage-html build/coverage
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: build/coverage/
