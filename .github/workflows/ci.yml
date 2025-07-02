@@ -43,3 +43,19 @@ jobs:
         with:
           name: code-coverage-report
           path: build/coverage/
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simuler le déploiement en production
+        run: |
+          echo "Déploiement sur le serveur de production..."
+          echo "Connexion via SSH..."
+          sleep 2
+          echo "Pull du code depuis le dépôt Git..."
+          sleep 2
+          echo "Lancement des migrations de base de données..."
+          sleep 3
+          echo "Déploiement terminé avec succès !"
