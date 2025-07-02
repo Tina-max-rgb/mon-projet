@@ -12,14 +12,11 @@
             <directory>test</directory>
         </testsuite>
     </testsuites>
-   <filter processUncoveredFiles="true">
-    <include>
-        <directory suffix=".php">src</directory>
-    </include>
-</filter>
 
-
-    <coverage>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
         <report>
             <html outputDirectory="build/coverage" />
         </report>
