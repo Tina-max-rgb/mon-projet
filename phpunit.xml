@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
          colors="true"
          executionOrder="random"
          cacheDirectory=".phpunit.cache"
@@ -10,12 +12,17 @@
             <directory>test</directory>
         </testsuite>
     </testsuites>
-
-   <coverage>
+   <filter processUncoveredFiles="true">
     <include>
         <directory suffix=".php">src</directory>
     </include>
-</coverage>
+</filter>
 
+
+    <coverage>
+        <report>
+            <html outputDirectory="build/coverage" />
+        </report>
+    </coverage>
 
 </phpunit>
